@@ -7,7 +7,9 @@ const dataPakage = {
 
 json.get("/json", async (req, res) => {
 	try {
-		res.status(200).json(dataPakage);
+		process.env.MESSAGE_STYLE == `uppercase`
+			? res.status(200).json(dataPakage.message.toUpperCase())
+			: res.status(200).json(dataPakage);
 		console.log("get /json for dataPakage");
 	} catch (error) {
 		res.status(404).send({

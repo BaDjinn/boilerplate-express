@@ -1,11 +1,14 @@
+//dotenv
+require("dotenv").config();
+//the express package
 const express = require("express");
 const app = express();
-
+//importing routes
 const jsonRoutes = require("./routes/jsonRoutes");
-
+//fancy logs
 console.log("Hello World");
 
-//middleware
+//middlewares
 app.use("/public", express.static(__dirname + `/public`));
 
 //ROUTING

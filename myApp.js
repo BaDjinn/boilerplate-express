@@ -9,7 +9,7 @@ console.log("Hello World");
 app.use("/public", express.static(__dirname + `/public`));
 
 //ROUTING
-app.use("/json", jsonRoutes);
+app.use("/", jsonRoutes);
 
 //inApp routing
 

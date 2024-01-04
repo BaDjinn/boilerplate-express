@@ -10,7 +10,7 @@ json.get("/json", async (req, res) => {
 		process.env.MESSAGE_STYLE == `uppercase`
 			? res.status(200).json({ message: "HELLO JSON" })
 			: res.status(200).json({ message: "Hello json" });
-		console.log("get /json for dataPakage");
+		console.log(`${req.method} /json for dataPakage`);
 	} catch (error) {
 		res.status(404).send({
 			statusCode: 400,

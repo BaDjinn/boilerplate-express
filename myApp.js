@@ -3,6 +3,9 @@ require("dotenv").config();
 //the express package
 const express = require("express");
 const app = express();
+//importing Middleware for Root-level
+
+const loglog = require("./middleware/logger");
 //importing routes
 const jsonRoutes = require("./routes/jsonRoutes");
 //fancy logs
@@ -10,6 +13,7 @@ console.log("Hello World");
 
 //middlewares
 app.use("/public", express.static(__dirname + `/public`));
+app.use(loglog);
 
 //ROUTING
 app.use("/", jsonRoutes);

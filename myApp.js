@@ -10,6 +10,7 @@ const timeStamp = require("./middleware/timeStamp");
 //importing routes
 const jsonRoutes = require("./routes/jsonRoutes");
 const echoRoute = require("./routes/echoRoutes");
+const nameRoute = require("./routes/nameRoutes");
 //fancy logs
 console.log("Hello World");
 
@@ -20,7 +21,7 @@ app.use(loglog);
 //ROUTING
 app.use("/", jsonRoutes);
 app.use("/", loglog, echoRoute);
-
+app.use("/", loglog, nameRoute);
 //inApp routing
 
 app.get("/", async (req, res) => {

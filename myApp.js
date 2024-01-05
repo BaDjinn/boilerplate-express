@@ -9,6 +9,7 @@ const loglog = require("./middleware/logger");
 const timeStamp = require("./middleware/timeStamp");
 //importing routes
 const jsonRoutes = require("./routes/jsonRoutes");
+const echoRoute = require("./routes/echoRoutes");
 //fancy logs
 console.log("Hello World");
 
@@ -18,6 +19,7 @@ app.use(loglog);
 
 //ROUTING
 app.use("/", jsonRoutes);
+app.use("/", loglog, echoRoute);
 
 //inApp routing
 

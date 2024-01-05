@@ -3,15 +3,16 @@ require("dotenv").config();
 //the express package
 const express = require("express");
 const app = express();
-//importing Middleware for Root-level
+//importing Middleware
 
 const loglog = require("./middleware/logger");
+const timeStamp = require("./middleware/timeStamp");
 //importing routes
 const jsonRoutes = require("./routes/jsonRoutes");
 //fancy logs
 console.log("Hello World");
 
-//middlewares
+//middlewares for Root-level
 app.use("/public", express.static(__dirname + `/public`));
 app.use(loglog);
 
@@ -30,6 +31,12 @@ app.get("/", async (req, res) => {
 			error: error,
 		});
 	}
+});
+/*----------ripartire da qui sotto!!---------- */
+app.get("/now", timeStamp, async (req, res) => {
+	res.status(200).send({
+		time: req.time,
+	});
 });
 
 module.exports = app;
